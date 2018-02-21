@@ -442,6 +442,7 @@ if __name__ == "__main__":
             context.load_cert_chain(args.cert,keyfile=args.key)
     else:
         url = "http://%s" % args.host
+        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     if args.port: url += ":%s" % args.port
     if args.path: url += "/%s" % args.path
     debugPrint(args.debug, "url:%s" % url)
